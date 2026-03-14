@@ -1,0 +1,3 @@
+[submodule "packages/pdfium_bindings"]
+	path = packages/pdfium_bindings
+	url = https://gitea.donrar-server.duckdns.org/donrar/pdfium_bindings.git

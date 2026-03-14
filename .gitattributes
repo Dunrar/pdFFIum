@@ -1,0 +1,20 @@
+# Line Endings
+* text=auto eol=lf
+
+# Language Statistics - Ignore native/binary blobs
+**/*.so linguist-vendored
+**/*.dll linguist-vendored
+**/*.dylib linguist-vendored
+**/*.a linguist-vendored
+**/*.o linguist-vendored
+**/*.snapshot linguist-vendored
+**/*.dill linguist-vendored
+
+# Folder Exclusions
+android/** linguist-vendored
+ios/** linguist-vendored
+build/** linguist-vendored
+linux/** linguist-vendored
+windows/** linguist-vendored
+.dart_tool/** linguist-vendored
+packages/pdfium_bindings/** linguist-vendored

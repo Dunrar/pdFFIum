@@ -1,0 +1,52 @@
+name: 'PDFiumBindings'
+description: 'Bindings to PDFium'
+output: 'lib/src/fpdf_bindings/pdfium_bindings.dart'
+llvm-path:     
+  - 'usr/lib/libclang.so'
+headers:
+  entry-points:
+    - 'pdfium-binaries/Linux/x86_64/include/fpdfview.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_annot.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_attachment.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_catalog.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_dataavail.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_doc.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_edit.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_ext.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_flatten.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_formfill.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_fwlevent.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_javascript.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_ppo.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_progressive.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_save.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_seaarchex.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_signature.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_structtree.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_sysfontinfo.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_text.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_thumbnail.h'
+    - 'pdfium-binaries/Linux/x86_64/include/fpdf_transformpage.h'
+  include-directives:
+    #- '**sftp.h'
+    #- 'libssh/include/libssh/**'
+    - 'pdfium-binaries/Linux/x86_64/include/**'
+functions:
+  # Declare leaf functions (should be short-running, non-blocking functions)
+  leaf:
+    include: 
+      - FPDF_RenderPageBitmap # Good or bad idea? Test with Isolate.
+      - FPDF_CloseDocument
+      - FPDF_ClosePage
+      - FPDFBitmap_Destroy
+  # Exposes these functions memory addresses for usage with NativeFinalizer
+  symbol-address:
+    include:
+      - FPDF_CloseDocument
+      - FPDF_ClosePage
+      - FPDFBitmap_Destroy
+compiler-opts:
+  #- '-Ilibssh/'
+  - '-I/usr/lib/clang/19/include/'
+
+#dart run ffigen --config ffigen.yaml

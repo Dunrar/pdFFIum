@@ -1,0 +1,30 @@
+name: pdffium
+description: A PDF engine and reader using Dart FFI to interface with PDFium.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  crypto: ^3.0.6
+  file_picker: ^10.1.2
+  vector_math: ^2.1.4
+
+  flutter:
+    sdk: flutter
+
+  pdfium_bindings:
+    path: ./packages/pdfium_bindings
+  ffi: ^2.1.4
+
+dev_dependencies:
+  ffigen: ^18.1.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/pdf/

@@ -1,0 +1,58 @@
+# General
+.DS_Store
+.history
+*.log
+*.class
+*.pyc
+*.swp
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Flutter / Dart
+.dart_tool/
+**/ .dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+**/build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+
+# Android
+android/.gradle/
+android/local.properties
+android/key.properties
+android/app/debug/
+android/app/profile/
+android/app/release/
+**/generated/
+
+# iOS / macOS
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Pods/
+ios/.test_runtime/
+macos/Flutter/ephemeral/
+DerivedData/
+*.xcworkspace
+!default.xcworkspace
+
+# Linux / Windows Ephemeral
+linux/flutter/ephemeral/
+windows/flutter/ephemeral/
+
+# Desktop Build Artifacts
+**/build/linux/
+**/build/windows/
+**/build/macos/
+
+# Obfuscation & Symbols
+app.*.symbols
+app.*.map.json
